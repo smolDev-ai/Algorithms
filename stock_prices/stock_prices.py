@@ -3,7 +3,22 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+    # find the minimum buy price and maximum sell price and determine profit
+    # subtract min from max return.
+    big = max(prices)
+    small = min(prices)
+
+    print(big)
+    print(small)
+
+    if prices.index(small) > prices.index(big):
+        pass
+    else:
+        return big - small
+        
+
+
+
 
 
 if __name__ == '__main__':

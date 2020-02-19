@@ -5,18 +5,22 @@ import argparse
 def find_max_profit(prices):
     # find the minimum buy price and maximum sell price and determine profit
     # subtract min from max return.
-    big = max(prices)
-    small = min(prices)
+    
+    # keep track of values
+    minimum = min(prices[0], prices[1])
+    profit = prices[1] - prices[0]
 
-    print(big)
-    print(small)
-
-    if prices.index(small) > prices.index(big):
-        pass
-    else:
-        return big - small
-        
-
+    # if prices is greater than two items
+    if len(prices) > 2:
+        # starting at the third index because we're storing the first and second indices in minimum
+        for i in range(2, len(prices)):
+            # if current index minus minimum is greater than profit set profit to that value
+            if prices[i] - minimum > profit:
+                profit = prices[i] - minimum
+            # if current index is less than minimum set the minimum to that value
+            if prices[i] < minimum:
+                minimum = prices[i]
+    return profit
 
 
 

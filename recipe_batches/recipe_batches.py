@@ -3,16 +3,25 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-    # keep track of values
-    batches = 0
-    no_ingredients = False
+    # take in a recipe and the ingredients you have.
+    # compare the two -- if you have enough ingredients -> increment batch
+    # decrement ingredients based on the matching recipe key/value.
+    # if you don't -- return batches
 
-    while no_ingredients is False:
-        batches += 1
+
+
+
+    # keep track of values
+    batches = -1
         
-        for item in recipe:
-            if item in ingredients.keys():
-                pass
+    for item in recipe:
+        if item in ingredients.keys():
+            if recipe[item] <= ingredients[item]:
+                # decrement the ingredients based on the recipe amount
+                ingredients[item] -= recipe[item]
+                # increment batches
+                batches += 1
+    return batches
 
 
 

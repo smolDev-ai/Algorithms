@@ -3,7 +3,17 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+    # keep track of values
+    batches = 0
+    no_ingredients = False
+
+    while no_ingredients is False:
+        batches += 1
+        
+        for item in recipe:
+            if item in ingredients.keys():
+                pass
+
 
 
 if __name__ == '__main__':

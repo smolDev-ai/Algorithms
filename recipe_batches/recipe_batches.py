@@ -16,9 +16,6 @@ def recipe_batches(recipe, ingredients):
     no_ingredients = False
 
     while no_ingredients is False:
-        batches += 1
-        
-        
         for item in recipe:
             if item in ingredients.keys():
                 if recipe[item] <= ingredients[item]:
@@ -26,8 +23,19 @@ def recipe_batches(recipe, ingredients):
                     ingredients[item] -= recipe[item]
                 else:
                     no_ingredients = True
+                    break
+            else:
+                # returning 0 because if the ingredient isn't in both dicts, we can't make it
+                batches = 0
+                no_ingredients = True
+        # adding this to the bottom so it doesn't run the first time we go through the loop, and we have the chance to return 0 if we can't make the recipe
+        if no_ingredients:
+            break
+        
+        batches += 1
 
-        return batches
+    return batches
+
 
 
 
